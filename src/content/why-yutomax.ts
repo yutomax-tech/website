@@ -1,5 +1,5 @@
-export const whyLuvmexContent = {
-  headline: 'Why LUVMEX?',
+export const whyYutomaxContent = {
+  headline: 'Why YUTOMAX?',
   subheadline: 'We combine deep technical expertise with a product-engineering mindset.',
   values: [
     {

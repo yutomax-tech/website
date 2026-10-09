@@ -9,7 +9,7 @@ interface JsonLdProps<T extends Thing> {
  * Server Component — no client JS shipped.
  *
  * @example
- * <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Organization', name: 'LUVMEX' }} />
+ * <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Organization', name: 'YUTOMAX' }} />
  */
 export function JsonLd<T extends Thing>({ data }: JsonLdProps<T>) {
   return (

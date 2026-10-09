@@ -9,7 +9,7 @@ export const industries: Industry[] = [
     icon: 'heart-pulse',
     seo: {
       title: 'Healthcare Software Development',
-      description: 'LUVMEX builds HIPAA-compliant healthcare software — EMR, telehealth, patient management, and medical analytics.',
+      description: 'YUTOMAX builds HIPAA-compliant healthcare software — EMR, telehealth, patient management, and medical analytics.',
     },
   },
   {
@@ -20,7 +20,7 @@ export const industries: Industry[] = [
     icon: 'trending-up',
     seo: {
       title: 'FinTech Software Development',
-      description: 'LUVMEX builds secure fintech solutions — payment systems, banking platforms, and compliance tools.',
+      description: 'YUTOMAX builds secure fintech solutions — payment systems, banking platforms, and compliance tools.',
     },
   },
   {
@@ -31,7 +31,7 @@ export const industries: Industry[] = [
     icon: 'shopping-bag',
     seo: {
       title: 'E-Commerce Software Development',
-      description: 'LUVMEX builds scalable e-commerce platforms — inventory, payments, and customer engagement.',
+      description: 'YUTOMAX builds scalable e-commerce platforms — inventory, payments, and customer engagement.',
     },
   },
   {
@@ -42,7 +42,7 @@ export const industries: Industry[] = [
     icon: 'truck',
     seo: {
       title: 'Logistics Software Development',
-      description: 'LUVMEX builds logistics software — fleet management, route optimization, and supply chain automation.',
+      description: 'YUTOMAX builds logistics software — fleet management, route optimization, and supply chain automation.',
     },
   },
   {
@@ -53,7 +53,7 @@ export const industries: Industry[] = [
     icon: 'graduation-cap',
     seo: {
       title: 'EdTech Software Development',
-      description: 'LUVMEX builds education platforms — LMS, virtual classrooms, and assessment tools.',
+      description: 'YUTOMAX builds education platforms — LMS, virtual classrooms, and assessment tools.',
     },
   },
   {
@@ -64,7 +64,7 @@ export const industries: Industry[] = [
     icon: 'building',
     seo: {
       title: 'PropTech Software Development',
-      description: 'LUVMEX builds real estate software — property management, listing portals, and analytics.',
+      description: 'YUTOMAX builds real estate software — property management, listing portals, and analytics.',
     },
   },
 ];

@@ -108,7 +108,7 @@ export function Hero() {
                     <span className="w-3 h-3 rounded-full bg-amber-500/80 shrink-0" />
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80 shrink-0" />
                     <span className="ml-2 font-mono text-xs text-content-tertiary truncate">
-                      luvmex-core.pipeline.ts
+                      yutomax-core.pipeline.ts
                     </span>
                   </div>
                   <span className="font-mono text-[10px] uppercase tracking-wider text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded border border-brand-500/20 shrink-0">
@@ -216,7 +216,7 @@ export function Hero() {
                       </text>
                     </g>
 
-                    {/* Central Hub: LUVMEX Service Fabric */}
+                    {/* Central Hub: YUTOMAX Service Fabric */}
                     <g transform="translate(140, 92)">
                       <rect
                         width="80"
@@ -235,7 +235,7 @@ export function Hero() {
                         fontWeight="bold"
                         fontFamily="var(--font-mono)"
                       >
-                        LUVMEX API
+                        YUTOMAX API
                       </text>
                       <text
                         x="40"

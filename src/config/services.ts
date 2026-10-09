@@ -20,7 +20,7 @@ export const services: Service[] = [
     seo: {
       title: 'Custom Software Development',
       description:
-        'LUVMEX builds custom software solutions tailored to your business. Scalable, secure, and engineered for long-term growth.',
+        'YUTOMAX builds custom software solutions tailored to your business. Scalable, secure, and engineered for long-term growth.',
     },
   },
   {
@@ -42,7 +42,7 @@ export const services: Service[] = [
     seo: {
       title: 'SaaS Product Development',
       description:
-        'LUVMEX builds SaaS products from concept to launch. Multi-tenant, subscription-ready, and cloud-native.',
+        'YUTOMAX builds SaaS products from concept to launch. Multi-tenant, subscription-ready, and cloud-native.',
     },
   },
   {
@@ -64,7 +64,7 @@ export const services: Service[] = [
     seo: {
       title: 'Web Application Development',
       description:
-        'LUVMEX builds modern web applications — fast, accessible, and SEO-friendly. React, Next.js, and TypeScript expertise.',
+        'YUTOMAX builds modern web applications — fast, accessible, and SEO-friendly. React, Next.js, and TypeScript expertise.',
     },
   },
   {
@@ -86,7 +86,7 @@ export const services: Service[] = [
     seo: {
       title: 'Mobile App Development',
       description:
-        'LUVMEX builds cross-platform and native mobile apps for iOS and Android. Smooth UX, high performance.',
+        'YUTOMAX builds cross-platform and native mobile apps for iOS and Android. Smooth UX, high performance.',
     },
   },
   {
@@ -108,7 +108,7 @@ export const services: Service[] = [
     seo: {
       title: 'AI & Machine Learning Solutions',
       description:
-        'LUVMEX builds AI-powered solutions — ML pipelines, LLM integrations, and intelligent automation for your business.',
+        'YUTOMAX builds AI-powered solutions — ML pipelines, LLM integrations, and intelligent automation for your business.',
     },
   },
   {
@@ -130,7 +130,7 @@ export const services: Service[] = [
     seo: {
       title: 'Domain-Specific Software Solutions',
       description:
-        'LUVMEX builds industry-specific software — healthcare, fintech, logistics, and more. Deep domain expertise.',
+        'YUTOMAX builds industry-specific software — healthcare, fintech, logistics, and more. Deep domain expertise.',
     },
   },
 ];

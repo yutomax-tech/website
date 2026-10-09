@@ -24,7 +24,7 @@ A full responsive audit was performed across the entire codebase. The project wa
 
 ### 2. `src/sections/hero.tsx` — Window Header (Line ~105)
 
-**Problem:** The code window header displayed a filename (`luvmex-core.pipeline.ts`) and an "Active Node" badge in a `flex justify-between` layout with no wrapping. On narrow viewports inside the card, these elements could collide or overflow.
+**Problem:** The code window header displayed a filename (`yutomax-core.pipeline.ts`) and an "Active Node" badge in a `flex justify-between` layout with no wrapping. On narrow viewports inside the card, these elements could collide or overflow.
 
 **Fix:**
 - Added `flex-wrap` and `gap-2` to the header container
@@ -110,9 +110,9 @@ A full responsive audit was performed across the entire codebase. The project wa
 2. In `mobile-nav.tsx`, the translated drawer container was present in the DOM even when closed, causing Chromium to calculate off-canvas scroll width.
 
 **Fix:**
-- Added `relative overflow-hidden` to [SectionWrapper](file:///c:/GitHub/LUVMEX/website/src/components/layout/section-wrapper.tsx) so all homepage sections automatically clip wide background glows.
+- Added `relative overflow-hidden` to [SectionWrapper](file:///c:/GitHub/YUTOMAX/website/src/components/layout/section-wrapper.tsx) so all homepage sections automatically clip wide background glows.
 - Added `overflow-hidden` to hero headers across all 8 marketing pages.
-- Added `overflow-x-hidden` and `max-w-full` to `<main>` and `<body>` in [src/app/layout.tsx](file:///c:/GitHub/LUVMEX/website/src/app/layout.tsx) and [src/app/globals.css](file:///c:/GitHub/LUVMEX/website/src/app/globals.css).
+- Added `overflow-x-hidden` and `max-w-full` to `<main>` and `<body>` in [src/app/layout.tsx](file:///c:/GitHub/YUTOMAX/website/src/app/layout.tsx) and [src/app/globals.css](file:///c:/GitHub/YUTOMAX/website/src/app/globals.css).
 - In `MobileNav`, conditionally unmounted the component when closed so off-screen elements do not exist in the DOM or participate in layout calculations.
 
 ---

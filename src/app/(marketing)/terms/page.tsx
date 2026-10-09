@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'LUVMEX terms of service and engineering engagement terms.',
+  description: 'YUTOMAX terms of service and engineering engagement terms.',
 };
 
 export default function TermsPage() {
@@ -27,14 +27,14 @@ export default function TermsPage() {
             1. Scope of Services
           </h2>
           <p>
-            LUVMEX provides custom software development, system architecture consulting, and product engineering services governed by detailed Statements of Work (SOWs) and Master Services Agreements (MSAs) agreed upon with each client.
+            YUTOMAX provides custom software development, system architecture consulting, and product engineering services governed by detailed Statements of Work (SOWs) and Master Services Agreements (MSAs) agreed upon with each client.
           </p>
 
           <h2 className="text-xl font-bold text-content-primary pt-4">
             2. Intellectual Property Ownership
           </h2>
           <p>
-            Unless explicitly agreed otherwise in a signed Statement of Work, all custom code, system designs, documentation, and digital assets developed by LUVMEX for a client become the exclusive property of the client upon full payment of agreed fees.
+            Unless explicitly agreed otherwise in a signed Statement of Work, all custom code, system designs, documentation, and digital assets developed by YUTOMAX for a client become the exclusive property of the client upon full payment of agreed fees.
           </p>
 
           <h2 className="text-xl font-bold text-content-primary pt-4">

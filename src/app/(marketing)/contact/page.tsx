@@ -8,7 +8,7 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   title: 'Contact Us & Start Your Project',
   description:
-    'Connect directly with the LUVMEX engineering team. Get a detailed technical consultation and architecture estimate within 24 hours.',
+    'Connect directly with the YUTOMAX engineering team. Get a detailed technical consultation and architecture estimate within 24 hours.',
 };
 
 export default function ContactPage() {
@@ -18,8 +18,8 @@ export default function ContactPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'ContactPage',
-          name: 'Contact LUVMEX',
-          description: 'Get in touch with LUVMEX for custom software engineering.',
+          name: 'Contact YUTOMAX',
+          description: 'Get in touch with YUTOMAX for custom software engineering.',
           url: `${siteConfig.url}/contact`,
         }}
       />
@@ -97,7 +97,7 @@ export default function ContactPage() {
             {/* Quote / Highlight */}
             <div className="p-6 rounded-2xl bg-surface-elevated/40 border border-surface-border/80">
               <p className="text-sm italic text-content-secondary leading-relaxed">
-                &ldquo;LUVMEX acts as an extension of our core technical leadership. Their architecture precision allowed us to ship on time without compromising scalability.&rdquo;
+                &ldquo;YUTOMAX acts as an extension of our core technical leadership. Their architecture precision allowed us to ship on time without compromising scalability.&rdquo;
               </p>
               <div className="mt-3 text-xs font-mono text-brand-400">
                 — Head of Engineering, Enterprise FinTech Client

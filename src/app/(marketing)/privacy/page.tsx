@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'LUVMEX privacy policy and data governance practices.',
+  description: 'YUTOMAX privacy policy and data governance practices.',
 };
 
 export default function PrivacyPage() {
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
             3. Mutual Non-Disclosure & Confidentiality
           </h2>
           <p>
-            All proprietary architecture details, code snippets, business plans, and intellectual property shared with LUVMEX during technical discovery are governed by strict confidentiality obligations and standard mutual non-disclosure agreements (NDAs).
+            All proprietary architecture details, code snippets, business plans, and intellectual property shared with YUTOMAX during technical discovery are governed by strict confidentiality obligations and standard mutual non-disclosure agreements (NDAs).
           </p>
 
           <h2 className="text-xl font-bold text-content-primary pt-4">

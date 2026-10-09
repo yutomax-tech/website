@@ -1,7 +1,7 @@
 import type { PageSEO } from './seo';
 
 /**
- * A LUVMEX service offering.
+ * A YUTOMAX service offering.
  */
 export interface Service {
   title: string;
@@ -15,7 +15,7 @@ export interface Service {
 }
 
 /**
- * An industry vertical LUVMEX serves.
+ * An industry vertical YUTOMAX serves.
  */
 export interface Industry {
   title: string;

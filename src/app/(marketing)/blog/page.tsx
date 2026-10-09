@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Icon } from '@/components/ui/icon';
 
 export const metadata: Metadata = {
-  title: 'Engineering Blog & Architectural Insights | LUVMEX',
+  title: 'Engineering Blog & Architectural Insights | YUTOMAX',
   description:
     'Technical deep-dives on distributed systems, Next.js architecture, database optimization, and high-concurrency software engineering.',
   robots: {

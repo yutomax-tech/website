@@ -1,10 +1,10 @@
-# Contributing to LUVMEX Website
+# Contributing to YUTOMAX Website
 
 ## Development Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/luvmexsolutions/website.git
+git clone https://github.com/yutomaxsolutions/website.git
 cd website
 
 # Install dependencies (requires pnpm 10.33+)

@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
     solution:
       'Designed an in-memory double-entry accounting engine with Raft consensus, write-ahead logging (WAL), and asynchronous audit journal mirroring to immutable cold storage.',
     overview:
-      'LUVMEX built a high-throughput financial settlement system supporting algorithmic transaction validation, automated reconciliation, and multi-currency routing.',
+      'YUTOMAX built a high-throughput financial settlement system supporting algorithmic transaction validation, automated reconciliation, and multi-currency routing.',
     results: [
       { metric: '< 8ms', label: 'Average Execution Time' },
       { metric: '12M+', label: 'Daily Transactions' },

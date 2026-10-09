@@ -1,6 +1,6 @@
-# LUVMEX — Custom Software & Product Engineering
+# YUTOMAX — Custom Software & Product Engineering
 
-> LUVMEX is a premier custom software and product engineering company. We engineer resilient, scalable systems, SaaS platforms, and AI-powered solutions for modern businesses.
+> YUTOMAX is a premier custom software and product engineering company. We engineer resilient, scalable systems, SaaS platforms, and AI-powered solutions for modern businesses.
 
 ## Core Capabilities
 - Custom Software Solutions: Scalable, high-concurrency backend architectures and tailored full-stack applications.
@@ -11,6 +11,6 @@
 - Domain-Specific Solutions: Healthcare (HIPAA), FinTech, E-Commerce, Logistics, EdTech, and PropTech systems.
 
 ## Contact & Engagements
-- Website: https://luvmex.com
-- Email: luvmexsolutions@gmail.com
+- Website: https://yutomax.com
+- Email: yutomaxsolutions@gmail.com
 - SLA: Inquiries reviewed within 24 hours by senior engineering leadership.

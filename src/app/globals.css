@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ══════════════════════════════════════════
-   LUVMEX — Design Token Layer (CSS Custom Properties)
+   YUTOMAX — Design Token Layer (CSS Custom Properties)
    Single source of truth for runtime theming.
    Tailwind config references these via var().
    ══════════════════════════════════════════ */

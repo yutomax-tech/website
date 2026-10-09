@@ -1,11 +1,11 @@
 import { SectionWrapper } from '@/components/layout/section-wrapper';
 import { Card } from '@/components/ui/card';
 import { Icon } from '@/components/ui/icon';
-import { whyLuvmexContent } from '@/content/why-luvmex';
+import { whyYutomaxContent } from '@/content/why-yutomax';
 
-export function WhyLuvmex() {
+export function WhyYutomax() {
   return (
-    <SectionWrapper id="why-luvmex" className="relative border-t border-surface-border/40">
+    <SectionWrapper id="why-yutomax" className="relative border-t border-surface-border/40">
       {/* Background radial glow */}
       <div
         className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-radial from-brand-600/10 via-transparent to-transparent blur-3xl -z-10"
@@ -14,18 +14,18 @@ export function WhyLuvmex() {
 
       <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
-          <span>THE LUVMEX ADVANTAGE</span>
+          <span>THE YUTOMAX ADVANTAGE</span>
         </div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-content-primary mb-5">
-          {whyLuvmexContent.headline}
+          {whyYutomaxContent.headline}
         </h2>
         <p className="text-body-lg text-content-secondary leading-relaxed">
-          {whyLuvmexContent.subheadline}
+          {whyYutomaxContent.subheadline}
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {whyLuvmexContent.values.map((val) => (
+        {whyYutomaxContent.values.map((val) => (
           <Card
             key={val.title}
             className="p-8 flex flex-col justify-start transition-all duration-300 hover:border-brand-500/40 hover:shadow-card-hover"

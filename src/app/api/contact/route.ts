@@ -167,7 +167,7 @@ export async function POST(request: NextRequest) {
           },
         });
       } catch (sheetsError) {
-        console.error('[LUVMEX] Google Sheets API error:', sheetsError);
+        console.error('[YUTOMAX] Google Sheets API error:', sheetsError);
         return NextResponse.json(
           {
             success: false,
@@ -190,7 +190,7 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error('[LUVMEX] Contact API error:', error);
+    console.error('[YUTOMAX] Contact API error:', error);
 
     return NextResponse.json(
       {
