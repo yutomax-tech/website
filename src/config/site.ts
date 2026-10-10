@@ -8,14 +8,14 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yutomax.com',
 
   contact: {
-    email: 'yutomaxsolutions@gmail.com',
+    email:  'sales@yutomax.com',
   },
 
   socialLinks: [
     { platform: 'LinkedIn', url: 'https://linkedin.com/company/yutomax', icon: 'linkedin' },
-    { platform: 'Instagram', url: 'https://instagram.com/yutomaxsolutions', icon: 'instagram' },
-    { platform: 'YouTube', url: 'https://youtube.com/@yutomaxsolutions', icon: 'youtube' },
-    { platform: 'X', url: 'https://x.com/yutomaxdev', icon: 'x' },
+    { platform: 'Instagram', url: 'https://www.instagram.com/yutomax.tech', icon: 'instagram' },
+    { platform: 'YouTube', url: 'https://youtube.com/@yutomax', icon: 'youtube' },
+    { platform: 'X', url: 'https://x.com/yutomax', icon: 'x' },
   ] satisfies SocialLink[],
 
   legal: {
