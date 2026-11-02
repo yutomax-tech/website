@@ -13,11 +13,20 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gradient-brand text-white hover:bg-gradient-brand-hover shadow-card hover:shadow-card-hover active:scale-[0.98]',
+    'bg-gradient-brand text-white hover:bg-gradient-brand-hover shadow-card hover:shadow-card-hover active:scale-[0.98] active:brightness-90',
   secondary:
-    'border border-surface-border text-content-primary hover:bg-surface-elevated hover:border-brand-500/30 active:scale-[0.98]',
+    'border border-surface-border text-content-primary hover:bg-surface-elevated hover:border-brand-500/30 active:scale-[0.98] ' +
+    // Pressed + "just clicked" (keeps focus) feedback
+    'active:bg-brand-500/15 active:border-brand-400/60 active:text-brand-100 focus:bg-brand-500/10 focus:border-brand-400/60',
   ghost:
-    'text-content-secondary hover:text-content-primary hover:bg-surface-elevated',
+    'text-content-secondary hover:text-content-primary hover:bg-surface-elevated active:bg-brand-500/10 active:text-brand-200',
+};
+
+/** Persistent "current page" state, e.g. the Start a Project CTA while on /contact. */
+const activeStyles: Record<ButtonVariant, string> = {
+  primary: 'ring-2 ring-brand-300/70 ring-offset-2 ring-offset-surface-primary brightness-110',
+  secondary: 'bg-brand-500/15 border-brand-400/60 text-brand-100',
+  ghost: 'bg-brand-500/10 text-brand-200',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -26,13 +35,19 @@ const sizeStyles: Record<ButtonSize, string> = {
   lg: 'px-8 py-4 text-body-lg',
 };
 
-function getButtonClasses(variant: ButtonVariant, size: ButtonSize, className?: string) {
+function getButtonClasses(
+  variant: ButtonVariant,
+  size: ButtonSize,
+  className?: string,
+  active = false
+) {
   return cn(
     'inline-flex items-center justify-center gap-2 rounded-lg font-medium',
     'transition-all duration-200 ease-smooth',
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
     variantStyles[variant],
+    active && activeStyles[variant],
     sizeStyles[size],
     className
   );
@@ -76,22 +91,33 @@ interface ButtonLinkProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
   className?: string;
+  /** Marks the link as the current page (adds aria-current + active styling). */
+  active?: boolean;
   children: React.ReactNode;
 }
 
-export function ButtonLink({ href, variant = 'primary', size = 'md', className, children }: ButtonLinkProps) {
+export function ButtonLink({
+  href,
+  variant = 'primary',
+  size = 'md',
+  className,
+  active = false,
+  children,
+}: ButtonLinkProps) {
   const isHash = href.startsWith('#');
+  const classes = getButtonClasses(variant, size, className, active);
+  const ariaCurrent = active ? ('page' as const) : undefined;
 
   if (isHash) {
     return (
-      <a href={href} className={getButtonClasses(variant, size, className)}>
+      <a href={href} aria-current={ariaCurrent} className={classes}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={getButtonClasses(variant, size, className)}>
+    <Link href={href} aria-current={ariaCurrent} className={classes}>
       {children}
     </Link>
   );

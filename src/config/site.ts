@@ -12,10 +12,10 @@ export const siteConfig = {
   },
 
   socialLinks: [
-    { platform: 'LinkedIn', url: 'https://linkedin.com/company/yutomax', icon: 'linkedin' },
+    { platform: 'LinkedIn', url: 'https://www.LinkedIn.com/company/yutomax', icon: 'linkedin' },
     { platform: 'Instagram', url: 'https://www.instagram.com/yutomax.tech', icon: 'instagram' },
-    { platform: 'YouTube', url: 'https://youtube.com/@yutomax', icon: 'youtube' },
-    { platform: 'X', url: 'https://x.com/yutomax', icon: 'x' },
+    { platform: 'YouTube', url: 'https://youtube.com/@yutomax_tech', icon: 'youtube' },
+    { platform: 'X', url: 'https://x.com/yutomax_tech', icon: 'x' },
   ] satisfies SocialLink[],
 
   legal: {

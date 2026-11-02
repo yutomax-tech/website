@@ -10,5 +10,5 @@ export const navItems: NavItem[] = [
 
 export const navCTA: NavCTA = {
   label: 'Start a Project',
-  href: '/contact',
+  href: '/contact#project-form',
 };

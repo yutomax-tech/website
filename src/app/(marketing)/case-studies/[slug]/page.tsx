@@ -180,7 +180,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
           headline="Looking to achieve similar engineering outcomes?"
           description="Speak with our technical leads to architect a custom solution for your platform."
           primaryLabel="Start Your Project"
-          primaryHref="/contact"
+          primaryHref="/contact#project-form"
         />
       </Container>
     </div>

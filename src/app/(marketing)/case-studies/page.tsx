@@ -119,7 +119,7 @@ export default function CaseStudiesPage() {
           headline="Have an ambitious technical initiative?"
           description="Schedule a technical architecture review with our principal software architects."
           primaryLabel="Start Your Project"
-          primaryHref="/contact"
+          primaryHref="/contact#project-form"
         />
       </Container>
     </div>

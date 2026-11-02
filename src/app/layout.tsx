@@ -6,6 +6,8 @@ import { siteConfig } from '@/config/site';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { JsonLd } from '@/components/seo/json-ld';
+import { NavigationProgress } from '@/components/layout/navigation-progress';
+import { SectionScrollManager } from '@/components/layout/section-scroll-manager';
 import './globals.css';
 
 const inter = Inter({
@@ -71,12 +73,15 @@ export default function RootLayout({
             '@type': 'Organization',
             name: siteConfig.name,
             url: siteConfig.url,
+            logo: `${siteConfig.url}/brand/yutomax-logo-stacked.png`,
             description: siteConfig.description,
             email: siteConfig.contact.email,
             sameAs: siteConfig.socialLinks.map((link) => link.url),
           }}
         />
 
+        <NavigationProgress />
+        <SectionScrollManager />
         <Header />
         <main id="main-content" className="flex-1 overflow-x-clip w-full max-w-full">
           {children}

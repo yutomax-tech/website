@@ -3,15 +3,18 @@
 import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ButtonLink } from '@/components/ui/button';
 import { navItems, navCTA } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
+import { Logo } from '@/components/common/logo';
 
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
+  /** Shared with the desktop header so both highlight the same item. */
+  isActive: (href: string) => boolean;
+  isCtaActive: boolean;
 }
 
 const emptySubscribe = () => () => {};
@@ -25,7 +28,7 @@ function getFocusableElements(container: HTMLElement): HTMLElement[] {
   );
 }
 
-export function MobileNav({ isOpen, onClose }: MobileNavProps) {
+export function MobileNav({ isOpen, onClose, isActive, isCtaActive }: MobileNavProps) {
   const isMounted = useSyncExternalStore(
     emptySubscribe,
     () => true,
@@ -35,7 +38,6 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const [isVisible, setIsVisible] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const pathname = usePathname();
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -64,12 +66,6 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
       clearTimeout(timer);
     };
   }, [isOpen]);
-
-  /** Check if a nav href matches the current pathname */
-  const isActive = (href: string): boolean => {
-    if (href.startsWith('/#')) return pathname === '/';
-    return pathname === href || pathname.startsWith(`${href}/`);
-  };
 
   // Focus the close button when drawer opens
   useEffect(() => {
@@ -153,9 +149,10 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <Link
             href="/"
             onClick={onClose}
-            className="text-heading-4 font-bold text-content-primary tracking-tight hover:text-brand-400 transition-colors"
+            aria-label={`${siteConfig.name} home`}
+            className="flex items-center shrink-0 transition-opacity hover:opacity-80"
           >
-            {siteConfig.name}
+            <Logo className="h-8" />
           </Link>
           <button
             ref={closeButtonRef}
@@ -197,7 +194,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         {/* CTA Button & Contact Info at bottom */}
         <div className="mt-auto pt-4 border-t border-surface-border space-y-4">
           <div onClick={onClose}>
-            <ButtonLink href={navCTA.href} size="md" className="w-full justify-center">
+            <ButtonLink href={navCTA.href} size="md" active={isCtaActive} className="w-full justify-center">
               {navCTA.label}
             </ButtonLink>
           </div>

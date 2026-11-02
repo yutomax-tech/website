@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { siteConfig } from '@/config/site';
 import { footerLinks } from '@/config/footer';
-import path from 'path';
+import { Logo } from '@/components/common/logo';
 
 /**
  * Footer — site-wide footer.
@@ -17,8 +17,12 @@ export function Footer() {
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {/* Brand column */}
             <div className="sm:col-span-2 lg:col-span-1">
-              <Link href="/" className="text-heading-4 font-bold text-content-primary tracking-tight">
-                {siteConfig.name}
+              <Link
+                href="/"
+                aria-label={`${siteConfig.name} home`}
+                className="inline-flex transition-opacity hover:opacity-80"
+              >
+                <Logo variant="full" className="h-auto w-60 max-w-full" />
               </Link>
               <p className="mt-3 text-body-sm text-content-secondary max-w-xs">
                 {siteConfig.description}
@@ -44,7 +48,8 @@ export function Footer() {
             {/* Link columns */}
             {footerLinks.map((group) => (
               <div key={group.title}>
-                <h3 className="text-body-sm font-semibold text-content-primary mb-4">
+                <h3 className="mb-5 text-base sm:text-lg font-semibold tracking-tight text-white">
+                  <span className="mb-2 block h-0.5 w-8 rounded-full bg-brand-400" aria-hidden="true" />
                   {group.title}
                 </h3>
                 <ul className="space-y-3">

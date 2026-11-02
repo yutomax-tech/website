@@ -148,7 +148,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
           headline={`Engineering tailored software for ${industry.title}?`}
           description="Schedule a technical discovery session with our architects to evaluate feasibility, compliance, and delivery timelines."
           primaryLabel="Discuss Your Industry Challenge"
-          primaryHref="/contact"
+          primaryHref="/contact#project-form"
         />
       </Container>
     </div>

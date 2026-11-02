@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -8,19 +8,32 @@ import { Container } from '@/components/ui/container';
 import { ButtonLink } from '@/components/ui/button';
 import { navItems, navCTA } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
+import { Logo } from '@/components/common/logo';
+import { useActiveSection } from '@/hooks/use-active-section';
 import { MobileNav } from './mobile-nav';
+
+/** Homepage section ids targeted by `/#…` nav items. */
+const SECTION_IDS = navItems
+  .filter((item) => item.href.startsWith('/#'))
+  .map((item) => item.href.slice(2));
+
+const CTA_PATHNAME = navCTA.href.split('#')[0];
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === '/';
+  const activeSection = useActiveSection(SECTION_IDS, isHome);
+  const isCtaActive = pathname === CTA_PATHNAME;
 
-  /** Check if a nav href matches the current pathname */
-  const isActive = (href: string): boolean => {
-    // Hash links like /#services match on homepage
-    if (href.startsWith('/#')) return pathname === '/';
-    // Exact match for non-hash routes
-    return pathname === href || pathname.startsWith(`${href}/`);
-  };
+  /** Section links follow scroll position on the homepage; page links match the route. */
+  const isActive = useCallback(
+    (href: string): boolean => {
+      if (href.startsWith('/#')) return isHome && activeSection === href.slice(2);
+      return pathname === href || pathname.startsWith(`${href}/`);
+    },
+    [isHome, activeSection, pathname]
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-surface-border bg-surface-primary/80 backdrop-blur-xl">
@@ -28,9 +41,10 @@ export function Header() {
         <nav className="flex h-16 items-center justify-between lg:h-18" aria-label="Main navigation">
           <Link
             href="/"
-            className="text-heading-4 font-bold text-content-primary tracking-tight hover:text-brand-400 transition-colors"
+            aria-label={`${siteConfig.name} home`}
+            className="flex items-center shrink-0 transition-opacity hover:opacity-80"
           >
-            {siteConfig.name}
+            <Logo className="h-8 lg:h-9" />
           </Link>
 
           <div className="hidden lg:flex lg:items-center lg:gap-8">
@@ -42,17 +56,19 @@ export function Header() {
                   href={item.href}
                   aria-current={active ? 'page' : undefined}
                   className={cn(
-                    'text-body-sm font-medium transition-colors duration-200',
+                    'relative py-1 text-body-sm font-medium transition-colors duration-200',
+                    'after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-brand-400',
+                    'after:origin-center after:transition-transform after:duration-300',
                     active
-                      ? 'text-brand-400'
-                      : 'text-content-secondary hover:text-content-primary'
+                      ? 'text-brand-300 after:scale-x-100'
+                      : 'text-content-secondary hover:text-content-primary after:scale-x-0 active:text-brand-300'
                   )}
                 >
                   {item.label}
                 </Link>
               );
             })}
-            <ButtonLink href={navCTA.href} size="sm">
+            <ButtonLink href={navCTA.href} size="sm" active={isCtaActive}>
               {navCTA.label}
             </ButtonLink>
           </div>
@@ -72,7 +88,12 @@ export function Header() {
           </button>
         </nav>
       </Container>
-      <MobileNav isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      <MobileNav
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        isActive={isActive}
+        isCtaActive={isCtaActive}
+      />
     </header>
   );
 }

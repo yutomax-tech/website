@@ -21,7 +21,7 @@ export const contactSchema = z.object({
     'ai-solutions',
     'domain-solutions',
     'other',
-  ]),
+  ], { error: 'Please select the service you are interested in' }),
   projectType: z.string().max(100).optional(),
   budget: z
     .enum(['<25k', '25k-50k', '50k-100k', '100k+', 'not-sure'])

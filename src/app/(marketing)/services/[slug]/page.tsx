@@ -147,7 +147,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           headline={`Ready to build your ${service.title.toLowerCase()}?`}
           description="Speak with our engineering leads to review your requirements, design the architecture, and establish a clear delivery timeline."
           primaryLabel="Schedule Architecture Consultation"
-          primaryHref="/contact"
+          primaryHref="/contact#project-form"
         />
       </Container>
     </div>

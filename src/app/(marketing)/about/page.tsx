@@ -132,7 +132,7 @@ export default function AboutPage() {
           headline="Ready to build your next engineering milestone?"
           description="Schedule a technical architecture discussion with our leadership team."
           primaryLabel="Start Your Project"
-          primaryHref="/contact"
+          primaryHref="/contact#project-form"
         />
       </Container>
     </div>

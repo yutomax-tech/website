@@ -28,7 +28,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-describedby={error ? `${textareaId}-error` : undefined}
           className={cn(
             'w-full rounded-lg border bg-surface-secondary px-4 py-3 min-h-[120px] resize-y',
-            'text-body text-content-primary placeholder:text-content-tertiary',
+            'text-body text-content-primary placeholder:text-content-tertiary placeholder:opacity-100',
             'transition-colors duration-200',
             'focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500',
             error

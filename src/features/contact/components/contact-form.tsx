@@ -7,7 +7,7 @@ import { Select } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Icon } from '@/components/ui/icon';
 import { FormSuccess } from './form-success';
-import { contactSchema, type ContactFormData } from '../schemas/contact-schema';
+import { contactSchema } from '../schemas/contact-schema';
 import { submitContactForm } from '@/lib/api/contact';
 
 const serviceOptions = [
@@ -40,25 +40,44 @@ interface FormErrors {
   [key: string]: string | undefined;
 }
 
+/** Raw form state — selects hold '' until the user picks an option. */
+type FormState = Record<
+  'name' | 'company' | 'email' | 'phone' | 'service' | 'budget' | 'timeline' | 'description' | 'honeypot',
+  string
+>;
+
+const initialFormState: FormState = {
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  service: '',
+  budget: '',
+  timeline: '',
+  description: '',
+  honeypot: '',
+};
+
+/** Optional fields left empty are omitted instead of sent as ''. */
+function toPayload(state: FormState) {
+  return {
+    ...state,
+    company: state.company || undefined,
+    phone: state.phone || undefined,
+    budget: state.budget || undefined,
+    timeline: state.timeline || undefined,
+  };
+}
+
 export function ContactForm() {
-  const [formData, setFormData] = useState<Partial<ContactFormData>>({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    service: 'custom-software',
-    budget: '50k-100k',
-    timeline: '1-3-months',
-    description: '',
-    honeypot: '',
-  });
+  const [formData, setFormData] = useState<FormState>(initialFormState);
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [serverMessage, setServerMessage] = useState<string>('');
   const [leadId, setLeadId] = useState<string>('');
 
-  const handleChange = (field: keyof ContactFormData, value: string) => {
+  const handleChange = (field: keyof FormState, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
@@ -69,7 +88,7 @@ export function ContactForm() {
     e.preventDefault();
 
     // Client-side Zod validation for instant UX feedback
-    const validationResult = contactSchema.safeParse(formData);
+    const validationResult = contactSchema.safeParse(toPayload(formData));
 
     if (!validationResult.success) {
       const fieldErrors: FormErrors = {};
@@ -116,17 +135,7 @@ export function ContactForm() {
   };
 
   const handleReset = () => {
-    setFormData({
-      name: '',
-      company: '',
-      email: '',
-      phone: '',
-      service: 'custom-software',
-      budget: '50k-100k',
-      timeline: '1-3-months',
-      description: '',
-      honeypot: '',
-    });
+    setFormData(initialFormState);
     setErrors({});
     setStatus('idle');
     setServerMessage('');
@@ -170,7 +179,7 @@ export function ContactForm() {
           id="website-hp"
           type="text"
           name="honeypot"
-          value={formData.honeypot || ''}
+          value={formData.honeypot}
           onChange={(e) => handleChange('honeypot', e.target.value)}
           tabIndex={-1}
           autoComplete="off"
@@ -184,8 +193,8 @@ export function ContactForm() {
             label="Full Name"
             id="contact-name"
             required
-            placeholder="Aarav Sharma"
-            value={formData.name || ''}
+            placeholder="Enter your full name"
+            value={formData.name}
             error={errors.name}
             onChange={(e) => handleChange('name', e.target.value)}
             disabled={status === 'submitting'}
@@ -193,8 +202,8 @@ export function ContactForm() {
           <Input
             label="Company / Organization"
             id="contact-company"
-            placeholder="Acme Corp"
-            value={formData.company || ''}
+            placeholder="Enter your company name"
+            value={formData.company}
             error={errors.company}
             onChange={(e) => handleChange('company', e.target.value)}
             disabled={status === 'submitting'}
@@ -208,8 +217,8 @@ export function ContactForm() {
             id="contact-email"
             type="email"
             required
-            placeholder="aarav@company.com"
-            value={formData.email || ''}
+            placeholder="Enter your work email"
+            value={formData.email}
             error={errors.email}
             onChange={(e) => handleChange('email', e.target.value)}
             disabled={status === 'submitting'}
@@ -218,8 +227,8 @@ export function ContactForm() {
             label="Phone Number"
             id="contact-phone"
             type="tel"
-            placeholder="+91 98765 43210"
-            value={formData.phone || ''}
+            placeholder="Enter your phone number"
+            value={formData.phone}
             error={errors.phone}
             onChange={(e) => handleChange('phone', e.target.value)}
             disabled={status === 'submitting'}
@@ -232,9 +241,10 @@ export function ContactForm() {
           id="contact-service"
           required
           options={serviceOptions}
-          value={formData.service || 'custom-software'}
+          placeholder="Select a service"
+          value={formData.service}
           error={errors.service}
-          onChange={(e) => handleChange('service', e.target.value)}
+          onValueChange={(v) => handleChange('service', v)}
           disabled={status === 'submitting'}
         />
 
@@ -244,18 +254,20 @@ export function ContactForm() {
             label="Target Budget"
             id="contact-budget"
             options={budgetOptions}
-            value={formData.budget || '50k-100k'}
+            placeholder="Select a budget range"
+            value={formData.budget}
             error={errors.budget}
-            onChange={(e) => handleChange('budget', e.target.value)}
+            onValueChange={(v) => handleChange('budget', v)}
             disabled={status === 'submitting'}
           />
           <Select
             label="Target Timeline"
             id="contact-timeline"
             options={timelineOptions}
-            value={formData.timeline || '1-3-months'}
+            placeholder="Select a timeline"
+            value={formData.timeline}
             error={errors.timeline}
-            onChange={(e) => handleChange('timeline', e.target.value)}
+            onValueChange={(v) => handleChange('timeline', v)}
             disabled={status === 'submitting'}
           />
         </div>
@@ -266,8 +278,8 @@ export function ContactForm() {
           id="contact-description"
           required
           rows={5}
-          placeholder="Briefly describe what you are looking to engineer, key constraints, current infrastructure, or specific outcomes..."
-          value={formData.description || ''}
+          placeholder="Describe your project, goals, key constraints, and any existing systems..."
+          value={formData.description}
           error={errors.description}
           onChange={(e) => handleChange('description', e.target.value)}
           disabled={status === 'submitting'}
