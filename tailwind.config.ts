@@ -21,17 +21,18 @@ const config: Config = {
           950: '#1e1b4b',
         },
         surface: {
-          primary: 'var(--surface-primary)',
-          secondary: 'var(--surface-secondary)',
-          elevated: 'var(--surface-elevated)',
-          overlay: 'var(--surface-overlay)',
-          border: 'var(--surface-border)',
+          primary: 'rgb(var(--surface-primary) / <alpha-value>)',
+          secondary: 'rgb(var(--surface-secondary) / <alpha-value>)',
+          elevated: 'rgb(var(--surface-elevated) / <alpha-value>)',
+          // Translucent tokens: modifier scales the base alpha (border/40 = 40% of 0.08)
+          overlay: 'rgb(var(--surface-overlay) / calc(var(--surface-overlay-alpha) * <alpha-value>))',
+          border: 'rgb(var(--surface-border) / calc(var(--surface-border-alpha) * <alpha-value>))',
         },
         content: {
-          primary: 'var(--content-primary)',
-          secondary: 'var(--content-secondary)',
-          tertiary: 'var(--content-tertiary)',
-          inverse: 'var(--content-inverse)',
+          primary: 'rgb(var(--content-primary) / <alpha-value>)',
+          secondary: 'rgb(var(--content-secondary) / <alpha-value>)',
+          tertiary: 'rgb(var(--content-tertiary) / <alpha-value>)',
+          inverse: 'rgb(var(--content-inverse) / <alpha-value>)',
         },
         accent: {
           glow: 'var(--accent-glow)',
@@ -82,7 +83,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-premium': 'linear-gradient(135deg, var(--surface-primary), var(--surface-secondary))',
+        'gradient-premium': 'linear-gradient(135deg, rgb(var(--surface-primary)), rgb(var(--surface-secondary)))',
         'gradient-brand': 'linear-gradient(135deg, #4f46e5, #6366f1)',
         'gradient-brand-hover': 'linear-gradient(135deg, #4338ca, #4f46e5)',
       },
@@ -110,6 +111,17 @@ const config: Config = {
         'fade-in': 'fade-in 0.4s ease-out',
         'slide-up': 'slide-up 0.4s ease-out',
         'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        // Hero
+        'gradient-x': 'gradient-x 6s ease-in-out infinite',
+        'aurora': 'aurora 18s ease-in-out infinite',
+        'aurora-slow': 'aurora 26s ease-in-out infinite reverse',
+        'float': 'float 6s ease-in-out infinite',
+        'shine': 'shine 3.5s ease-in-out infinite',
+        'dash-flow': 'dash-flow 1.2s linear infinite',
+        'ping-slow': 'ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'blink': 'blink 1s step-end infinite',
+        'rise': 'rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'spin-slow': 'spin 8s linear infinite',
       },
       keyframes: {
         'fade-in': {
@@ -123,6 +135,37 @@ const config: Config = {
         'pulse-glow': {
           '0%, 100%': { opacity: '0.4' },
           '50%': { opacity: '0.8' },
+        },
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'aurora': {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '33%': { transform: 'translate3d(6%, -8%, 0) scale(1.12)' },
+          '66%': { transform: 'translate3d(-6%, 6%, 0) scale(0.92)' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+        'shine': {
+          '0%': { transform: 'translateX(-120%) skewX(-20deg)' },
+          '60%, 100%': { transform: 'translateX(220%) skewX(-20deg)' },
+        },
+        'dash-flow': {
+          to: { strokeDashoffset: '-16' },
+        },
+        'ping-slow': {
+          '0%': { transform: 'scale(1)', opacity: '0.7' },
+          '80%, 100%': { transform: 'scale(1.9)', opacity: '0' },
+        },
+        'blink': {
+          '50%': { opacity: '0' },
+        },
+        'rise': {
+          from: { opacity: '0', transform: 'translateY(24px)', filter: 'blur(6px)' },
+          to: { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
         },
       },
     },

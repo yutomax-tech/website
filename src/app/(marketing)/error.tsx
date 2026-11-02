@@ -31,7 +31,7 @@ export default function MarketingError({
             <Icon name="alert-circle" size={32} />
           </div>
 
-          <h1 className="text-3xl font-bold text-content-primary mb-3">
+          <h1 className="text-3xl font-bold heading-gradient mb-3">
             Something went wrong
           </h1>
 

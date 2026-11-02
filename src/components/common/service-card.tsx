@@ -15,7 +15,7 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
     <Card
       className={cn(
         'group relative flex flex-col justify-between p-7 md:p-8 transition-all duration-300',
-        'hover:border-brand-500/40 hover:shadow-card-hover hover:shadow-brand-500/5',
+        '',
         className
       )}
     >
@@ -25,7 +25,7 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
       <div>
         {/* Icon & Title */}
         <div className="flex items-center gap-4 mb-5">
-          <div className="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 group-hover:bg-brand-500/20 group-hover:text-brand-300 group-hover:scale-105 transition-all duration-300">
+          <div className="w-12 h-12 rounded-xl icon-tile flex items-center justify-center shrink-0 group-hover:bg-brand-500/20 group-hover:text-brand-300 group-hover:scale-105 transition-all duration-300">
             <Icon name={service.icon} size={24} />
           </div>
           <h3 className="text-xl font-semibold text-content-primary group-hover:text-brand-300 transition-colors">

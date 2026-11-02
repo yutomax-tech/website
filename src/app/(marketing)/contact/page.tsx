@@ -35,10 +35,10 @@ export default function ContactPage() {
           {/* Left Column: Direct Info & Assurance */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
+              <div className="eyebrow mb-4">
                 <span>DIRECT ACCESS TO ENGINEERS</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-content-primary mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight heading-gradient mb-4">
                 Let&apos;s Engineer Your Next Product
               </h1>
               <p className="text-body-lg text-content-secondary leading-relaxed">
@@ -49,7 +49,7 @@ export default function ContactPage() {
             {/* Direct contact items */}
             <div className="space-y-4 pt-4 border-t border-surface-border">
               <div className="flex items-center gap-4 p-4 rounded-xl bg-surface-secondary/60 border border-surface-border">
-                <div className="w-10 h-10 rounded-lg bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg icon-tile flex items-center justify-center shrink-0">
                   <Icon name="mail" size={20} />
                 </div>
                 <div>

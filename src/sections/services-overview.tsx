@@ -12,10 +12,10 @@ export function ServicesOverview() {
       />
 
       <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
+        <div className="eyebrow mb-4">
           <span>OUR SERVICES</span>
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-content-primary mb-5">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight heading-gradient mb-5 pb-1">
           Engineered for Resilience & Scale
         </h2>
         <p className="text-body-lg text-content-secondary leading-relaxed">

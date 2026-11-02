@@ -6,7 +6,7 @@ import { industries } from '@/config/industries';
 
 export function Industries() {
   return (
-    <SectionWrapper id="industries" className="relative border-t border-surface-border/40">
+    <SectionWrapper id="industries" className="relative section-divider">
       {/* Background ambient glow */}
       <div
         className="pointer-events-none absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gradient-radial from-indigo-600/10 via-transparent to-transparent blur-3xl -z-10"
@@ -14,10 +14,10 @@ export function Industries() {
       />
 
       <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
+        <div className="eyebrow mb-4">
           <span>DOMAIN EXPERTISE</span>
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-content-primary mb-5">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight heading-gradient mb-5 pb-1">
           Specialized for Regulated & High-Growth Sectors
         </h2>
         <p className="text-body-lg text-content-secondary leading-relaxed">
@@ -32,9 +32,9 @@ export function Industries() {
             href={`/industries/${industry.slug}`}
             className="group block focus-visible:outline-none"
           >
-            <Card className="h-full p-8 flex flex-col justify-between transition-all duration-300 group-hover:border-brand-500/40 group-hover:shadow-card-hover group-hover:shadow-brand-500/5">
+            <Card className="h-full p-8 flex flex-col justify-between transition-all duration-300">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-surface-elevated border border-surface-border text-brand-400 flex items-center justify-center mb-6 group-hover:scale-105 group-hover:bg-brand-500/15 group-hover:border-brand-500/30 group-hover:text-brand-300 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl icon-tile flex items-center justify-center mb-6 group-hover:scale-105 group-hover:bg-brand-500/15 group-hover:border-brand-500/30 group-hover:text-brand-300 transition-all duration-300">
                   <Icon name={industry.icon} size={24} />
                 </div>
                 <h3 className="text-xl font-semibold text-content-primary mb-3 group-hover:text-brand-300 transition-colors">

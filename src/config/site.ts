@@ -8,7 +8,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yutomax.com',
 
   contact: {
-    email:  'sales@yutomax.com',
+    email:  'info@yutomax.com',
   },
 
   socialLinks: [

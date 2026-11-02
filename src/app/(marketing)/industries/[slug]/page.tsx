@@ -89,7 +89,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
         {/* Hero header */}
         <div className="max-w-3xl mb-16 md:mb-20">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-xl icon-tile flex items-center justify-center">
               <Icon name={industry.icon} size={24} />
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-elevated border border-surface-border text-xs font-mono text-brand-300">
@@ -97,7 +97,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-content-primary mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight heading-gradient mb-6">
             {industry.title}
           </h1>
 

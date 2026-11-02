@@ -55,11 +55,11 @@ export default function BlogPage() {
 
       <Container wide>
         <div className="max-w-3xl mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
+          <div className="eyebrow mb-4">
             <span>ENGINEERING LOGS</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-content-primary mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight heading-gradient mb-6">
             Architectural Insights & Technical Notes
           </h1>
 
@@ -72,7 +72,7 @@ export default function BlogPage() {
           {articles.map((article) => (
             <Card
               key={article.slug}
-              className="p-8 flex flex-col justify-between transition-all duration-300 hover:border-brand-500/40 hover:shadow-card-hover"
+              className="p-8 flex flex-col justify-between transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-content-tertiary mb-4">

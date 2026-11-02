@@ -13,9 +13,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gradient-brand text-white hover:bg-gradient-brand-hover shadow-card hover:shadow-card-hover active:scale-[0.98] active:brightness-90',
+    'bg-gradient-brand text-white hover:bg-gradient-brand-hover active:scale-[0.98] active:brightness-90 ' +
+    'shadow-[0_0_0_1px_rgba(129,140,248,0.35),0_8px_30px_-8px_rgba(99,102,241,0.7)] hover:shadow-[0_0_0_1px_rgba(165,180,252,0.55),0_12px_40px_-6px_rgba(99,102,241,0.9)]',
   secondary:
-    'border border-surface-border text-content-primary hover:bg-surface-elevated hover:border-brand-500/30 active:scale-[0.98] ' +
+    'border border-white/10 bg-white/[0.03] backdrop-blur-md text-content-primary hover:bg-surface-elevated hover:border-brand-500/30 active:scale-[0.98] ' +
     // Pressed + "just clicked" (keeps focus) feedback
     'active:bg-brand-500/15 active:border-brand-400/60 active:text-brand-100 focus:bg-brand-500/10 focus:border-brand-400/60',
   ghost:

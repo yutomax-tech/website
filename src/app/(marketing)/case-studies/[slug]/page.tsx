@@ -90,7 +90,7 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-content-primary mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight heading-gradient mb-6">
             {study.title}
           </h1>
 

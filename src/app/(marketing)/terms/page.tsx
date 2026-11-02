@@ -11,7 +11,7 @@ export default function TermsPage() {
   return (
     <div className="py-24 md:py-32">
       <Container narrow>
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-content-primary mb-6">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight heading-gradient mb-6">
           Terms of Service
         </h1>
         <p className="text-sm font-mono text-content-tertiary mb-10">

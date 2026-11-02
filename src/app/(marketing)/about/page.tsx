@@ -64,11 +64,11 @@ export default function AboutPage() {
       <Container wide>
         {/* Hero header */}
         <div className="max-w-3xl mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
+          <div className="eyebrow mb-4">
             <span>ABOUT YUTOMAX</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-content-primary mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight heading-gradient mb-6">
             We Build Software Systems That Stand the Test of Scale
           </h1>
 
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 key={idx}
                 className="p-8 flex flex-col justify-start transition-all duration-300 hover:border-brand-500/40"
               >
-                <div className="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center mb-5">
+                <div className="w-10 h-10 rounded-xl icon-tile flex items-center justify-center mb-5">
                   <Icon name={p.icon} size={20} />
                 </div>
                 <h3 className="text-xl font-semibold text-content-primary mb-2">

@@ -10,7 +10,10 @@ import { Logo } from '@/components/common/logo';
  */
 export function Footer() {
   return (
-    <footer className="border-t border-surface-border bg-surface-secondary">
+    <footer className="relative isolate overflow-hidden border-t border-white/[0.06] bg-surface-secondary/70 backdrop-blur-xl">
+      {/* Gradient hairline + glow */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-brand-400/60 to-transparent" aria-hidden="true" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-72 w-[700px] -translate-x-1/2 rounded-full bg-brand-600/10 blur-[110px]" aria-hidden="true" />
       <Container>
         <div className="py-12 sm:py-16">
           {/* Grid: Logo + link columns */}

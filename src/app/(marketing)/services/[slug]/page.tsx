@@ -83,7 +83,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         {/* Hero header */}
         <div className="max-w-3xl mb-16 md:mb-20">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-xl icon-tile flex items-center justify-center">
               <Icon name={service.icon} size={24} />
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-elevated border border-surface-border text-xs font-mono text-brand-300">
@@ -91,7 +91,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-content-primary mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight heading-gradient mb-6">
             {service.title}
           </h1>
 
@@ -124,7 +124,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 className="p-6 flex flex-col justify-start transition-all duration-300 hover:border-brand-500/40"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-7 h-7 rounded-lg bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-lg icon-tile flex items-center justify-center shrink-0">
                     <Icon name="check" size={16} />
                   </div>
                   <span className="font-mono text-xs text-content-tertiary">

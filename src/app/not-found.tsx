@@ -14,11 +14,11 @@ export default function NotFound() {
 
       <Container narrow>
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-6">
+          <div className="eyebrow mb-6">
             <span>ERROR 404</span>
           </div>
 
-          <h1 className="text-4xl xs:text-5xl sm:text-7xl font-extrabold font-mono tracking-tight text-content-primary mb-4">
+          <h1 className="text-4xl xs:text-5xl sm:text-7xl font-extrabold font-mono tracking-tight heading-gradient mb-4">
             Endpoint Not Found
           </h1>
 

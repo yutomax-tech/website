@@ -24,10 +24,10 @@ export default function CaseStudiesPage() {
 
       <Container wide>
         <div className="max-w-3xl mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-mono mb-4">
+          <div className="eyebrow mb-4">
             <span>PROVEN RESULTS</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-content-primary mb-5">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight heading-gradient mb-5">
             Architecture in Practice
           </h1>
           <p className="text-xl text-content-secondary leading-relaxed">
@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
           {caseStudies.map((study) => (
             <Card
               key={study.slug}
-              className="p-8 md:p-12 transition-all duration-300 hover:border-brand-500/40 hover:shadow-card-hover"
+              className="p-8 md:p-12 transition-all duration-300"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div className="lg:col-span-8">

@@ -10,18 +10,22 @@
 
 @layer base {
   :root {
-    /* ── Surfaces ── */
-    --surface-primary: #06060e;
-    --surface-secondary: #0c0c18;
-    --surface-elevated: #141428;
-    --surface-overlay: rgba(12, 12, 24, 0.85);
-    --surface-border: rgba(255, 255, 255, 0.06);
+    /* ── Surfaces ──
+       Stored as RGB channels so Tailwind opacity modifiers work
+       (e.g. bg-surface-secondary/80). Use as rgb(var(--surface-primary)). */
+    --surface-primary: 6 6 14;
+    --surface-secondary: 12 12 24;
+    --surface-elevated: 20 20 40;
+    --surface-overlay: 12 12 24;
+    --surface-overlay-alpha: 0.85;
+    --surface-border: 255 255 255;
+    --surface-border-alpha: 0.08;
 
     /* ── Content ── */
-    --content-primary: #f0f0f8;
-    --content-secondary: #a8a8c0;
-    --content-tertiary: #7a7a98;
-    --content-inverse: #06060e;
+    --content-primary: 240 240 248;
+    --content-secondary: 168 168 192;
+    --content-tertiary: 128 128 158;
+    --content-inverse: 6 6 14;
 
     /* ── Accent ── */
     --accent-glow: rgba(99, 102, 241, 0.15);
@@ -42,7 +46,14 @@
   }
 
   body {
-    @apply bg-surface-primary text-content-primary font-sans;
+    @apply text-content-primary font-sans;
+    /* Site-wide ambient glow — the same palette as the hero aurora */
+    background:
+      radial-gradient(1100px 600px at 12% -8%, rgba(79, 70, 229, 0.12), transparent 60%),
+      radial-gradient(900px 620px at 100% 35%, rgba(192, 38, 211, 0.06), transparent 60%),
+      radial-gradient(900px 700px at 0% 95%, rgba(8, 145, 178, 0.06), transparent 60%),
+      rgb(var(--surface-primary));
+    background-attachment: fixed;
   }
 
   /* ── Focus visible ── */
@@ -71,6 +82,121 @@
 /* ══════════════════════════════════════════
    Utility classes
    ══════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════
+   Theme components — shared "aurora glass" look
+   ══════════════════════════════════════════ */
+
+@layer components {
+  /* Eyebrow pill above headings: gradient border + glowing dot */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-xs tracking-wide text-brand-200 backdrop-blur-md;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(rgb(var(--surface-primary) / 0.9), rgb(var(--surface-primary) / 0.9)) padding-box,
+      linear-gradient(90deg, rgba(99, 102, 241, 0.75), rgba(232, 121, 249, 0.5), rgba(34, 211, 238, 0.6)) border-box;
+  }
+  .eyebrow:not(:has(svg))::before {
+    content: '';
+    @apply h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400;
+    box-shadow: 0 0 8px rgba(52, 211, 153, 0.8);
+  }
+
+  /* Large headings: soft white → indigo fade */
+  .heading-gradient {
+    @apply bg-gradient-to-b from-white via-white to-brand-200 bg-clip-text text-transparent;
+  }
+
+  /* Animated multi-hue accent text (same as hero "Software") */
+  .text-aurora {
+    @apply bg-gradient-to-r from-brand-300 via-fuchsia-300 to-cyan-300 bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-x;
+  }
+
+  /* Glass card with a gradient hairline border */
+  .glass-card {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid transparent !important;
+    background:
+      linear-gradient(180deg, rgb(var(--surface-elevated) / 0.55), rgb(var(--surface-secondary) / 0.8)) padding-box,
+      linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03) 45%, rgba(129, 140, 248, 0.22)) border-box;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 24px 60px -32px rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    transition:
+      translate 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.35s ease,
+      background 0.35s ease;
+  }
+  /* Top sheen, painted under the card's content */
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(520px circle at 50% -30%, rgba(129, 140, 248, 0.14), transparent 45%);
+    opacity: 0.8;
+    transition: opacity 0.35s ease;
+  }
+  .glass-card-hover:hover,
+  .group:hover > .glass-card-hover,
+  .group:focus-visible > .glass-card-hover {
+    /* `translate` (not transform) so it composes with the .reveal animation */
+    translate: 0 -4px;
+    background:
+      linear-gradient(180deg, rgb(var(--surface-elevated) / 0.7), rgb(var(--surface-secondary) / 0.85)) padding-box,
+      linear-gradient(160deg, rgba(129, 140, 248, 0.75), rgba(232, 121, 249, 0.35) 50%, rgba(34, 211, 238, 0.55)) border-box;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.07),
+      0 28px 70px -24px rgba(99, 102, 241, 0.5);
+  }
+  .glass-card-hover:hover::before,
+  .group:hover > .glass-card-hover::before {
+    opacity: 1;
+  }
+
+  /* Icon tile: gradient fill + soft ring glow */
+  .icon-tile {
+    @apply flex items-center justify-center text-brand-200 ring-1 ring-inset ring-brand-300/25;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.32), rgba(192, 38, 211, 0.14));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 8px 24px -10px rgba(99, 102, 241, 0.7);
+  }
+
+  /* Gradient hairline at the top of a section */
+  .section-divider::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px;
+    background: linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.45), rgba(232, 121, 249, 0.3), transparent);
+  }
+
+  /* Scroll-driven entrance (progressive enhancement; static where unsupported) */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 60%;
+      }
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(36px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 
 @layer utilities {
   /* Glass-morphism surface */
